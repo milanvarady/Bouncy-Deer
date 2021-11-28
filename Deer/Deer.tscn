@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Deer/Deer.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 36.3456
+
+[node name="Deer" type="KinematicBody2D"]
+collision_mask = 0
+input_pickable = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FloorCheck" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 40 )
+
+[node name="Trajectory" type="Line2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_Deer_input_event"]
