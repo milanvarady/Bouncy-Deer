@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 24.0832
+
+[node name="Bouncer" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}

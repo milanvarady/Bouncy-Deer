@@ -3,7 +3,7 @@
 [ext_resource path="res://Deer/Deer.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 36.3456
+radius = 26.0
 
 [node name="Deer" type="KinematicBody2D"]
 collision_mask = 0
@@ -18,8 +18,4 @@ __meta__ = {
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
 enabled = true
-cast_to = Vector2( 0, 40 )
-
-[node name="Trajectory" type="Line2D" parent="."]
-
-[connection signal="input_event" from="." to="." method="_on_Deer_input_event"]
+cast_to = Vector2( 0, 30 )
