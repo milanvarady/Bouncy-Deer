@@ -5,10 +5,14 @@
 [sub_resource type="CircleShape2D" id=3]
 radius = 26.0
 
-[node name="Deer" type="KinematicBody2D"]
+[node name="Deer" type="KinematicBody2D" groups=["Deer"]]
 collision_mask = 0
 input_pickable = true
 script = ExtResource( 1 )
+gravity = 1200.0
+max_fall_speed = 3000.0
+dampening = 0.3
+floor_firction = 0.04
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )

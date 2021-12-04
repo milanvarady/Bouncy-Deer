@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal stopped
 
 export var gravity: float = 800
 export var max_fall_speed: float = 2000
@@ -11,6 +12,7 @@ var velocity := Vector2.ZERO
 
 var on_floor: bool = false
 var was_on_floor: bool = false
+var last_pos: Vector2 = position
 
 
 func _ready() -> void:
@@ -31,11 +33,23 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce(collision_data.normal)
 		
 		if not on_floor or (on_floor and not was_on_floor):
+			# Bouncing from wall or celing
 			if collision_data.collider.name == "Bouncer":
 				velocity *= bouncer_multiplier
 			else:
 				velocity *= 1 - dampening
 		else:
+			# On floor
 			velocity *= 1 - floor_firction
+			
+			if position.is_equal_approx(last_pos):
+				stop()
+			
 		
 	was_on_floor = on_floor
+	last_pos = position
+
+
+func stop() -> void:
+	emit_signal('stopped')
+	set_physics_process(false)

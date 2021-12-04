@@ -46,10 +46,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		$Trajectory.hide()
 
 
+func _on_Deer_stopped():
+	deer.disconnect('stopped', self, '_on_Deer_stopped')
+	create_deer()
+
+
 func create_deer() -> void:
 	deer = deer_scene.instance()
 	deer.position = $DeerPos.position
 	deer.connect("input_event", self, "_on_Deer_input_event")
+	deer.connect("stopped", self, "_on_Deer_stopped")
 	add_child(deer)
 
 
