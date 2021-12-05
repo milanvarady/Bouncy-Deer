@@ -1,8 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit4.png" type="Texture" id=1]
 [ext_resource path="res://Deer/Deer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DeerLauncher/DeerLauncher.gd" type="Script" id=3]
+[ext_resource path="res://UI Theme/Theme.tres" type="Theme" id=4]
+[ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle4.png" type="Texture" id=5]
+[ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle5.png" type="Texture" id=6]
+[ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit2.png" type="Texture" id=7]
+[ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit5.png" type="Texture" id=8]
+[ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit1.png" type="Texture" id=9]
+[ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle1.png" type="Texture" id=10]
+[ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit6.png" type="Texture" id=11]
+[ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle2.png" type="Texture" id=12]
+[ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle3.png" type="Texture" id=13]
+[ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit3.png" type="Texture" id=14]
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.73366, 0.0, 0, 0 ]
@@ -11,20 +22,71 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.73366, 0.0, 0, 0 
 offsets = PoolRealArray( 0, 0.603261, 1 )
 colors = PoolColorArray( 0.578125, 0.578125, 0.578125, 1, 0.878906, 0.878906, 0.878906, 1, 1, 1, 1, 0 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 10.0
+} ]
+
 [node name="DeerLauncher" type="Node2D"]
 script = ExtResource( 3 )
 deer_scene = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.1875, 1 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="DeerPos" type="Position2D" parent="."]
-position = Vector2( 0, -29 )
+position = Vector2( 8, -24 )
 
 [node name="Trajectory" type="Line2D" parent="."]
 width_curve = SubResource( 2 )
 gradient = SubResource( 1 )
+
+[node name="Timeout" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="StuckPopup" type="Panel" parent="."]
+visible = false
+margin_left = -112.0
+margin_top = -152.0
+margin_right = 112.0
+margin_bottom = -48.0
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="StuckPopup"]
+anchor_right = 1.0
+margin_bottom = 40.0
+text = "Deer Stuck?"
+align = 1
+
+[node name="StuckButton" type="Button" parent="StuckPopup"]
+anchor_left = 0.071
+anchor_top = 0.687
+anchor_right = 0.929
+anchor_bottom = 0.692
+margin_left = 0.0959997
+margin_top = -19.448
+margin_right = -0.0960083
+margin_bottom = 19.032
+text = "Help Me"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -8, -8 )
+frames = SubResource( 3 )
+animation = "Idle"
+frame = 4
+playing = true
+
+[connection signal="timeout" from="Timeout" to="." method="_on_Timeout_timeout"]
+[connection signal="pressed" from="StuckPopup/StuckButton" to="." method="_on_StuckButton_pressed"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

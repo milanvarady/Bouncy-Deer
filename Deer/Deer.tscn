@@ -1,18 +1,34 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Deer/Deer.gd" type="Script" id=1]
+[ext_resource path="res://Deer/deer.png" type="Texture" id=2]
+[ext_resource path="res://Deer/Trail.gd" type="Script" id=3]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 2.53651, 0, 0, Vector2( 1, 1 ), -0.105186, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.763587, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.392157, 1, 1, 1, 0.392157, 1, 1, 1, 0 )
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 26.0
+radius = 11.0
 
 [node name="Deer" type="KinematicBody2D" groups=["Deer"]]
 collision_mask = 0
 input_pickable = true
 script = ExtResource( 1 )
-gravity = 1200.0
-max_fall_speed = 3000.0
-dampening = 0.3
-floor_firction = 0.04
+
+[node name="Trail" type="Line2D" parent="."]
+width_curve = SubResource( 4 )
+default_color = Color( 0.4, 0.501961, 1, 1 )
+gradient = SubResource( 5 )
+script = ExtResource( 3 )
+target_path = NodePath("..")
+trail_length = 40
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
@@ -22,4 +38,4 @@ __meta__ = {
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
 enabled = true
-cast_to = Vector2( 0, 30 )
+cast_to = Vector2( 0, 18 )
