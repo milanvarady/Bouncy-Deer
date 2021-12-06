@@ -84,7 +84,7 @@ __meta__ = {
 position = Vector2( -8, -8 )
 frames = SubResource( 3 )
 animation = "Idle"
-frame = 4
+frame = 2
 playing = true
 
 [connection signal="timeout" from="Timeout" to="." method="_on_Timeout_timeout"]

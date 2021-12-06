@@ -1,5 +1,7 @@
 extends Control
 
+
+
 var star_num: int = 1
 
 func _on_Timer_timeout() -> void:
@@ -12,9 +14,12 @@ func _on_Timer_timeout() -> void:
 	var tween = Tween.new()
 	add_child(tween)
 	
+	var scale_normal = star.rect_scale
+	var scale_increased = scale_normal * 1.3
+	
 	tween.interpolate_property(star, "value", 0, 100, 1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	tween.interpolate_property(star, "rect_scale", Vector2(1, 1), Vector2(1.3, 1.3), 0.4, Tween.TRANS_CUBIC, Tween.EASE_IN)
-	tween.interpolate_property(star, "rect_scale", Vector2(1.3, 1.3), Vector2(1, 1), 0.6, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.4)
+	tween.interpolate_property(star, "rect_scale", scale_normal, scale_increased, 0.4, Tween.TRANS_CUBIC, Tween.EASE_IN)
+	tween.interpolate_property(star, "rect_scale", scale_increased, scale_normal, 0.6, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.4)
 	
 	tween.start()
 	
@@ -26,7 +31,3 @@ func _on_Timer_timeout() -> void:
 
 func start_animation() -> void:
 	$Timer.start()
-
-
-func _on_DeerLauncher_level_complete() -> void:
-	start_animation()

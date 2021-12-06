@@ -23,7 +23,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 0.2, 1 ),
 "update": 0,
-"values": [ Vector2( -400, 64 ), Vector2( 352, 64 ) ]
+"values": [ Vector2( -400, 64 ), Vector2( 336, 64 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Panel/Stars")
@@ -32,7 +32,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -50,30 +50,6 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Panel/ButtonContainer/BackToMenu:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Panel/ButtonContainer/NextLevel:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -137,38 +113,38 @@ format = 1
 tile_data = PoolIntArray( 0, 0, 4, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 196609, 5, 0, 196609, 6, 0, 196609, 7, 0, 196609, 8, 0, 196609, 9, 0, 196609, 10, 0, 196609, 11, 0, 196609, 12, 0, 196609, 13, 0, 196609, 14, 0, 196609, 15, 0, 196609, 16, 0, 196609, 17, 0, 196609, 18, 0, 196609, 19, 0, 196609, 20, 0, 196609, 21, 0, 196609, 22, 0, 196609, 23, 0, 196609, 24, 0, 196609, 25, 0, 196609, 26, 0, 196609, 27, 0, 196609, 28, 0, 196609, 29, 0, 196609, 30, 0, 196609, 31, 0, 196609, 32, 0, 196609, 33, 0, 196609, 34, 0, 196609, 35, 0, 196609, 36, 0, 196609, 37, 0, 196609, 38, 0, 196609, 39, 0, 196609, 40, 0, 196609, 41, 0, 196609, 42, 0, 196609, 43, 0, 196609, 44, 0, 196609, 45, 0, 196609, 46, 0, 196609, 47, 0, 196609, 48, 0, 196609, 49, 0, 196609, 50, 0, 196609, 51, 0, 196609, 52, 0, 196609, 53, 0, 196609, 54, 0, 196609, 55, 0, 196609, 56, 0, 196609, 57, 0, 196609, 58, 0, 196609, 59, 0, 196609, 60, 0, 196609, 61, 0, 196609, 62, 0, 196609, 63, 0, 5, 65536, 0, 65539, 65599, 0, 65539, 131072, 0, 65539, 131135, 0, 65539, 196608, 0, 65539, 196671, 0, 65539, 262144, 0, 65539, 262207, 0, 65539, 327680, 0, 65539, 327743, 0, 65539, 393216, 0, 65539, 393279, 0, 65539, 458752, 0, 65539, 458815, 0, 65539, 524288, 0, 65539, 524351, 0, 65539, 589824, 0, 65539, 589887, 0, 65539, 655360, 0, 65539, 655423, 0, 65539, 720896, 0, 65539, 720959, 0, 65539, 786432, 0, 65539, 786495, 0, 65539, 851968, 0, 65539, 852031, 0, 65539, 917504, 0, 65539, 917567, 0, 65539, 983040, 0, 65539, 983103, 0, 65539, 1048576, 0, 65539, 1048639, 0, 65539, 1114112, 0, 65539, 1114175, 0, 65539, 1179648, 0, 65539, 1179711, 0, 65539, 1245184, 0, 65539, 1245247, 0, 65539, 1310720, 0, 65539, 1310783, 0, 65539, 1376256, 0, 65539, 1376319, 0, 65539, 1441792, 0, 65539, 1441855, 0, 65539, 1507328, 0, 65539, 1507391, 0, 65539, 1572864, 0, 65539, 1572927, 0, 65539, 1638400, 0, 65539, 1638463, 0, 65539, 1703936, 0, 65539, 1703999, 0, 65539, 1769472, 0, 65539, 1769535, 0, 65539, 1835008, 0, 65539, 1835071, 0, 65539, 1900544, 0, 65539, 1900607, 0, 65539, 1966080, 0, 65539, 1966143, 0, 65539, 2031616, 0, 65539, 2031679, 0, 65539, 2097152, 0, 65539, 2097215, 0, 65539, 2162688, 0, 65539, 2162751, 0, 65539, 2228224, 0, 65539, 2228287, 0, 65539, 2293760, 0, 65540, 2293761, 0, 196609, 2293762, 0, 196609, 2293763, 0, 196609, 2293764, 0, 196609, 2293765, 0, 196609, 2293766, 0, 196609, 2293767, 0, 196609, 2293768, 0, 196609, 2293769, 0, 196609, 2293770, 0, 196609, 2293771, 0, 196609, 2293772, 0, 196609, 2293773, 0, 196609, 2293774, 0, 196609, 2293775, 0, 196609, 2293776, 0, 196609, 2293777, 0, 196609, 2293778, 0, 196609, 2293779, 0, 196609, 2293780, 0, 196609, 2293781, 0, 196609, 2293782, 0, 196609, 2293783, 0, 196609, 2293784, 0, 196609, 2293785, 0, 196609, 2293786, 0, 196609, 2293787, 0, 196609, 2293788, 0, 196609, 2293789, 0, 196609, 2293790, 0, 196609, 2293791, 0, 196609, 2293792, 0, 196609, 2293793, 0, 196609, 2293794, 0, 196609, 2293795, 0, 196609, 2293796, 0, 196609, 2293797, 0, 196609, 2293798, 0, 196609, 2293799, 0, 196609, 2293800, 0, 196609, 2293801, 0, 196609, 2293802, 0, 196609, 2293803, 0, 196609, 2293804, 0, 196609, 2293805, 0, 196609, 2293806, 0, 196609, 2293807, 0, 196609, 2293808, 0, 196609, 2293809, 0, 196609, 2293810, 0, 196609, 2293811, 0, 196609, 2293812, 0, 196609, 2293813, 0, 196609, 2293814, 0, 196609, 2293815, 0, 196609, 2293816, 0, 196609, 2293817, 0, 196609, 2293818, 0, 196609, 2293819, 0, 196609, 2293820, 0, 196609, 2293821, 0, 196609, 2293822, 0, 196609, 2293823, 0, 65541 )
 
 [node name="Goal" parent="." instance=ExtResource( 8 )]
-position = Vector2( 624, 336 )
+position = Vector2( 816, 256 )
 
 [node name="DeerLauncher" parent="." instance=ExtResource( 4 )]
 position = Vector2( 144, 144 )
 
-[node name="EndScreen" type="Control" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="EndScreen" type="Control" parent="UI"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1024.0
-margin_bottom = 576.0
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="EndScreen"]
+[node name="Panel" type="Panel" parent="UI/EndScreen"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = 352.0
 margin_top = 64.0
-margin_right = 672.001
+margin_right = 704.0
 margin_bottom = 512.0
 rect_pivot_offset = Vector2( 189, 336 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="EndScreen/Panel"]
+[node name="Label" type="Label" parent="UI/EndScreen/Panel"]
 anchor_right = 1.0
 margin_bottom = 80.0
 text = "Level Cleared"
@@ -178,7 +154,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="EndScreen/Panel"]
+[node name="TextureRect" type="TextureRect" parent="UI/EndScreen/Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -191,7 +167,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Stars" type="Control" parent="EndScreen/Panel"]
+[node name="Stars" type="Control" parent="UI/EndScreen/Panel"]
 anchor_left = 0.1
 anchor_top = 0.357
 anchor_right = 0.9
@@ -205,7 +181,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Star1" type="TextureProgress" parent="EndScreen/Panel/Stars"]
+[node name="Star1" type="TextureProgress" parent="UI/EndScreen/Panel/Stars"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -26.0
@@ -221,7 +197,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Star2" type="TextureProgress" parent="EndScreen/Panel/Stars"]
+[node name="Star2" type="TextureProgress" parent="UI/EndScreen/Panel/Stars"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -230,13 +206,15 @@ margin_left = -29.0
 margin_top = -26.0
 margin_right = 29.0
 margin_bottom = 26.0
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 29, 26 )
 size_flags_horizontal = 7
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 fill_mode = 4
 tint_progress = Color( 1, 0.74902, 0, 1 )
 
-[node name="Star3" type="TextureProgress" parent="EndScreen/Panel/Stars"]
+[node name="Star3" type="TextureProgress" parent="UI/EndScreen/Panel/Stars"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -249,11 +227,14 @@ texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 fill_mode = 4
 tint_progress = Color( 1, 0.74902, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Timer" type="Timer" parent="EndScreen/Panel/Stars"]
+[node name="Timer" type="Timer" parent="UI/EndScreen/Panel/Stars"]
 wait_time = 0.2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="EndScreen/Panel"]
+[node name="ButtonContainer" type="HBoxContainer" parent="UI/EndScreen/Panel"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -265,24 +246,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackToMenu" type="Button" parent="EndScreen/Panel/ButtonContainer"]
-margin_right = 117.0
+[node name="BackToMenu" type="Button" parent="UI/EndScreen/Panel/ButtonContainer"]
+margin_right = 149.0
 margin_bottom = 80.0
 size_flags_horizontal = 7
 text = "Menu"
 
-[node name="NextLevel" type="Button" parent="EndScreen/Panel/ButtonContainer"]
-margin_left = 121.0
-margin_right = 288.0
+[node name="NextLevel" type="Button" parent="UI/EndScreen/Panel/ButtonContainer"]
+margin_left = 153.0
+margin_right = 320.0
 margin_bottom = 80.0
 size_flags_horizontal = 7
 text = "Next Level"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EndScreen"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/EndScreen"]
 anims/LevelComplete = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
-[connection signal="level_complete" from="DeerLauncher" to="EndScreen/Panel/Stars" method="_on_DeerLauncher_level_complete"]
-[connection signal="timeout" from="EndScreen/Panel/Stars/Timer" to="EndScreen/Panel/Stars" method="_on_Timer_timeout"]
-[connection signal="pressed" from="EndScreen/Panel/ButtonContainer/BackToMenu" to="EndScreen" method="_on_BackToMenu_pressed"]
-[connection signal="pressed" from="EndScreen/Panel/ButtonContainer/NextLevel" to="EndScreen" method="_on_NextLevel_pressed"]
+[connection signal="level_complete" from="DeerLauncher" to="UI/EndScreen" method="_on_DeerLauncher_level_complete"]
+[connection signal="timeout" from="UI/EndScreen/Panel/Stars/Timer" to="UI/EndScreen/Panel/Stars" method="_on_Timer_timeout"]
+[connection signal="pressed" from="UI/EndScreen/Panel/ButtonContainer/BackToMenu" to="UI/EndScreen" method="_on_BackToMenu_pressed"]
+[connection signal="pressed" from="UI/EndScreen/Panel/ButtonContainer/NextLevel" to="UI/EndScreen" method="_on_NextLevel_pressed"]

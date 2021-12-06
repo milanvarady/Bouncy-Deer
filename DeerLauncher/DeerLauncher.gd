@@ -39,10 +39,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("drag") and drag:
 		drag = false
 		
+		# Set velocity and enable physics
 		deer.velocity = calculate_launch_velocity()
 		deer.set_physics_process(true)
 		deer.get_node('Trail').set_process(true)
 		deer.disconnect("input_event", self, "_on_Deer_input_event")
+		
+		# Reset deer position
+		deer.position = $DeerPos.position
 		
 		$Trajectory.hide()
 		$Timeout.start()
@@ -57,7 +61,11 @@ func _on_Deer_stopped(in_goal):
 		if Global.current_level == Global.levels_unloced:
 			Global.levels_unloced += 1
 		
-			emit_signal("level_complete")
+		emit_signal("level_complete")
+		
+		# Disable stuck help
+		$Timeout.stop()
+		$StuckPopup.hide()
 	else:
 		create_deer()
 

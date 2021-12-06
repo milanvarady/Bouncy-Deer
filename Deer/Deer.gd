@@ -35,19 +35,16 @@ func _physics_process(delta: float) -> void:
 	if collision_data:
 		velocity = velocity.bounce(collision_data.normal)
 		
-		if not on_floor or (on_floor and not was_on_floor):
-			# Bouncing from wall or celing
-			if collision_data.collider.name == "Bouncer":
-				velocity *= bouncer_multiplier
-			else:
-				velocity *= 1 - dampening
-			
+		if collision_data.collider.name == "Bouncer":
+			velocity *= bouncer_multiplier
 		else:
-			# On floor
-			velocity *= 1 - floor_firction
+			velocity *= 1 - dampening
 			
-			if position.distance_to(last_pos) < 0.05:
-				stop()
+			if on_floor:
+				velocity.x *= 1 - floor_firction
+				
+				if position.distance_to(last_pos) < 0.05:
+					stop()
 		
 	$Sprite.rotation_degrees += velocity.x * 0.01
 		
