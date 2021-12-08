@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/racket_swing_1.mp3-b08c5028fe050e6596e832f19937e720.mp3str"
+
+[deps]
+
+source_file="res://DeerLauncher/Sounds/racket_swing_1.mp3"
+dest_files=[ "res://.import/racket_swing_1.mp3-b08c5028fe050e6596e832f19937e720.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

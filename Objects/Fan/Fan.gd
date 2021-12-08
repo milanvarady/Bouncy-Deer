@@ -1,8 +1,8 @@
 extends Sprite
 
-export (int, 20, 80) var fan_speed := 30
+export (int) var fan_speed := 30
 
-var deer: KinematicBody2D = null
+var deer: RigidBody2D = null
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group('Deer'):
@@ -12,7 +12,8 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 func _process(delta: float) -> void:
 	if deer != null:
-		deer.velocity -= Vector2.DOWN.rotated(rotation) * fan_speed
+		if not deer.sleeping:
+			deer.add_central_force(Vector2.DOWN.rotated(rotation) * fan_speed)
 
 
 func _on_Area2D_body_exited(_body: Node) -> void:

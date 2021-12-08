@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit4.png" type="Texture" id=1]
 [ext_resource path="res://Deer/Deer.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle2.png" type="Texture" id=12]
 [ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle3.png" type="Texture" id=13]
 [ext_resource path="res://DeerLauncher/Animation/Hit/Santa_Baseballbat_hit3.png" type="Texture" id=14]
+[ext_resource path="res://DeerLauncher/Sounds/racket_swing_1.mp3" type="AudioStream" id=15]
+[ext_resource path="res://DeerLauncher/Sounds/anime_punch.mp3" type="AudioStream" id=16]
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.73366, 0.0, 0, 0 ]
@@ -24,20 +26,25 @@ colors = PoolColorArray( 0.578125, 0.578125, 0.578125, 1, 0.878906, 0.878906, 0.
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Hit",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
 } ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 25.2982
 
 [node name="DeerLauncher" type="Node2D"]
 script = ExtResource( 3 )
 deer_scene = ExtResource( 2 )
+max_drag_distance = 120.0
+launch_velocity_multiplier = 1200.0
 
 [node name="DeerPos" type="Position2D" parent="."]
 position = Vector2( 8, -24 )
@@ -87,6 +94,25 @@ animation = "Idle"
 frame = 2
 playing = true
 
+[node name="AimDrag" type="Area2D" parent="."]
+position = Vector2( 8, -24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AimDrag"]
+shape = SubResource( 4 )
+
+[node name="Polygon2d" type="Polygon2D" parent="AimDrag"]
+scale = Vector2( 0.375, 0.375 )
+color = Color( 1, 0.631373, 0, 1 )
+polygon = PoolVector2Array( 0, -16, -16, 0, 0, 16, 16, 0 )
+
+[node name="WhooshSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -10.0
+
 [connection signal="timeout" from="Timeout" to="." method="_on_Timeout_timeout"]
 [connection signal="pressed" from="StuckPopup/StuckButton" to="." method="_on_StuckButton_pressed"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="input_event" from="AimDrag" to="." method="_on_AimDrag_input_event"]

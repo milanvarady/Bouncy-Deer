@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/anime_punch.mp3-66ed59d2d92a3d72288c4b0ef243cf69.mp3str"
+
+[deps]
+
+source_file="res://DeerLauncher/Sounds/anime_punch.mp3"
+dest_files=[ "res://.import/anime_punch.mp3-66ed59d2d92a3d72288c4b0ef243cf69.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
