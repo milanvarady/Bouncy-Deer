@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Base Level/EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://Tileset/SnowTileset.tres" type="TileSet" id=2]
@@ -47,9 +47,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 32, 496 ) ]
 }
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 480, 56 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "LevelComplete"
@@ -178,7 +175,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
 margin_top = 496.0
-margin_right = 992.0
+margin_right = 3040.0
 margin_bottom = 608.0
 mouse_filter = 2
 theme = ExtResource( 3 )
@@ -196,13 +193,6 @@ shape = SubResource( 3 )
 [node name="DockAnimation" type="AnimationPlayer" parent="Base/ObjectDock/Dock"]
 anims/Open = SubResource( 4 )
 anims/RESET = SubResource( 5 )
-
-[node name="ExitArea" type="Area2D" parent="Base/ObjectDock"]
-position = Vector2( 512, 48 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Base/ObjectDock/ExitArea"]
-position = Vector2( 0, 8 )
-shape = SubResource( 6 )
 
 [node name="Goal" parent="Base" instance=ExtResource( 8 )]
 position = Vector2( 816, 256 )
@@ -365,7 +355,6 @@ anims/LevelComplete = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
 [connection signal="area_entered" from="Base/ObjectDock/Dock/DragArea" to="Base/ObjectDock" method="_on_DragArea_area_entered"]
-[connection signal="area_exited" from="Base/ObjectDock/ExitArea" to="Base/ObjectDock" method="_on_ExitArea_area_exited"]
 [connection signal="level_complete" from="Base/DeerLauncher" to="UI/EndScreen" method="_on_DeerLauncher_level_complete"]
 [connection signal="tween_all_completed" from="Base/HitCam/HitCamTween" to="Base/DeerLauncher" method="_on_HitCamTween_tween_all_completed"]
 [connection signal="timeout" from="UI/EndScreen/Panel/Stars/Timer" to="UI/EndScreen/Panel/Stars" method="_on_Timer_timeout"]
