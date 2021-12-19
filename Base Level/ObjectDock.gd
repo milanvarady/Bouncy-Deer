@@ -7,6 +7,9 @@ var initial_collect := 5
 
 
 func _ready() -> void:
+	if not visible:
+		queue_free()
+	
 	# This is because of a bug
 	$Dock.rect_size = Vector2(960, 112)
 	$Dock/DockAnimation.play_backwards("Open")

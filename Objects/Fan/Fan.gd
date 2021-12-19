@@ -1,6 +1,6 @@
 extends Area2D
 
-export (int) var fan_speed := 40
+export (int) var fan_speed := 100
 
 var deer: RigidBody2D = null
 
@@ -8,7 +8,7 @@ var deer: RigidBody2D = null
 func _process(delta: float) -> void:
 	if deer != null:
 		if not deer.sleeping:
-			deer.apply_central_impulse(Vector2.UP.rotated(rotation) * fan_speed)
+			deer.apply_central_impulse(Vector2.UP.rotated(global_rotation) * fan_speed)
 
 
 func _on_Area2D_body_entered(body: Node) -> void:

@@ -94,7 +94,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body" index="1"]
 frames = SubResource( 2 )
 animation = "Spin"
-frame = 1
 playing = true
 script = ExtResource( 6 )
 
