@@ -19,8 +19,7 @@ colors = PoolColorArray( 1, 1, 1, 0.392157, 1, 1, 1, 0.392157, 1, 1, 1, 0 )
 [node name="Deer" type="RigidBody2D" groups=["Deer"]]
 collision_layer = 0
 physics_material_override = SubResource( 4 )
-gravity_scale = 8.0
-linear_damp = 0.4
+gravity_scale = 24.0
 angular_damp = 20.0
 script = ExtResource( 3 )
 
@@ -37,3 +36,8 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
+
+[node name="StopPatience" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="StopPatience" to="." method="_on_StopPatience_timeout"]

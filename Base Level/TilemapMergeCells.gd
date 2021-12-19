@@ -17,11 +17,11 @@ func merge(tilemap : TileMap, exclude_list : Array = []) -> Array:
 				tilemap.get_cell(tile_pos.x - 1, tile_pos.y) == TileMap.INVALID_CELL or
 				tilemap.get_cell(tile_pos.x + 1, tile_pos.y) == TileMap.INVALID_CELL):
 				rect_list.append(Rect2(tile_pos, bottom_right))
-	print("Before:", rect_list.size())
+#	print("Before:", rect_list.size())
 	rect_list = join_rects_x(rect_list)
-	print("After x:", rect_list.size())
+#	print("After x:", rect_list.size())
 	rect_list = join_rects_y(rect_list)
-	print("After y:", rect_list.size())
+#	print("After y:", rect_list.size())
 	
 	return rect_list
 

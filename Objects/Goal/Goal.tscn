@@ -9,7 +9,7 @@
 [ext_resource path="res://Objects/Goal/Animation/GoalFlag4.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 16 )
+extents = Vector2( 64, 16 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -31,6 +31,7 @@ position = Vector2( 9, -20 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "Wave"
+frame = 3
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Goal_body_entered"]

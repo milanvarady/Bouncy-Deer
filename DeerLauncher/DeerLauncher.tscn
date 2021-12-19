@@ -96,6 +96,7 @@ playing = true
 
 [node name="AimDrag" type="Area2D" parent="."]
 position = Vector2( 8, -24 )
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AimDrag"]
 shape = SubResource( 4 )

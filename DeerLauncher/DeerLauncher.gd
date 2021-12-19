@@ -17,9 +17,10 @@ var shots: int = 0
 var deer: RigidBody2D
 var drag := false
 var launch_velocity := Vector2.ZERO
+var can_shoot := false
 
 onready var hit_cam: Camera2D = get_parent().get_node("HitCam")
-onready var hit_tween: Tween = get_parent().get_node("HitCamTween")
+onready var hit_tween: Tween = hit_cam.get_node("HitCamTween")
 
 func _ready() -> void:
 	create_deer()
@@ -36,12 +37,12 @@ func _process(delta: float) -> void:
 		
 		$AimDrag.position = deer_pos + mouse_direction * min(distance_to_mouse, max_drag_distance)
 		
-		update_trajectory(delta)
+		update_trajectory()
 		
 
 # Start drag
 func _on_AimDrag_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action_pressed("drag") and deer != null:
+	if event.is_action_pressed("drag") and deer != null and can_shoot:
 		drag = true
 		
 		emit_signal("drag_start")
@@ -53,6 +54,8 @@ func _on_AimDrag_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("drag") and drag:
 		drag = false
+		can_shoot = false
+		Global.move_phase = false
 		
 		launch_velocity = calculate_launch_velocity()
 		
@@ -91,7 +94,9 @@ func _on_HitCamTween_tween_all_completed() -> void:
 	hit_cam.clear_current()
 	
 	deer.sleeping = false
-	deer.set_process(true)
+	deer.set_physics_process(true)
+	deer.collision_mask = 1
+	deer.collision_layer = 1
 	
 	deer.apply_central_impulse(launch_velocity)
 	deer.get_node('Trail').set_process(true)
@@ -125,21 +130,22 @@ func _on_Deer_stopped(in_goal):
 
 
 func create_deer() -> void:
+	Global.move_phase = true
+	
 	deer = deer_scene.instance()
 	
 	deer.position = $DeerPos.position
 	deer.connect("stopped", self, "_on_Deer_stopped")
 	
-	deer.set_process(false)
-	deer.sleeping = true
-	
 	add_child(deer)
 	
 	$StuckPopup.hide()
 	$Timeout.stop()
+	
+	can_shoot = true
 
 
-func update_trajectory(delta: float):
+func update_trajectory(delta: float = 0.016):
 	$Trajectory.clear_points()
 	var vel = calculate_launch_velocity().round()
 	

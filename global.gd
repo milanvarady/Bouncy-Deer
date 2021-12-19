@@ -4,6 +4,7 @@ var current_level: int = -1
 var levels_unloced: int = 1
 var stars_earned: int = 2
 var stars: PoolIntArray
+var move_phase := true
 
 func go_to_level(level_num: int) -> void:
 	Global.current_level = level_num
