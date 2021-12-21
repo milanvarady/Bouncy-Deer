@@ -4,7 +4,6 @@ export var objects_path: NodePath
 
 var objects_on_dock: Array = []
 var mouse_inside := false
-var initial_collect := 0
 
 
 func _ready() -> void:
@@ -35,14 +34,11 @@ func _process(delta: float) -> void:
 			_on_ObjectDock_mouse_exited()
 		
 		mouse_inside = false
-		
-	if initial_collect > 0:
-		initial_collect -= 1
 
 
 func _on_DragArea_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Objects") and not objects_on_dock.has(area):
-		if (area.drag or initial_collect > 0) and not objects_on_dock.has(area):
+		if area.drag and not objects_on_dock.has(area):
 			add_object(area)
 
 

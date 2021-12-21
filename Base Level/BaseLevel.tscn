@@ -175,7 +175,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
-margin_right = 5088.0
+margin_right = 8160.0
 margin_bottom = 112.0
 mouse_filter = 2
 theme = ExtResource( 3 )
@@ -355,6 +355,7 @@ anims/LevelComplete = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
 [connection signal="area_entered" from="Base/ObjectDock/Dock/DragArea" to="Base/ObjectDock" method="_on_DragArea_area_entered"]
+[connection signal="level_complete" from="Base/DeerLauncher" to="Base/Goal" method="_on_DeerLauncher_level_complete"]
 [connection signal="level_complete" from="Base/DeerLauncher" to="UI/EndScreen" method="_on_DeerLauncher_level_complete"]
 [connection signal="tween_all_completed" from="Base/HitCam/HitCamTween" to="Base/DeerLauncher" method="_on_HitCamTween_tween_all_completed"]
 [connection signal="timeout" from="UI/EndScreen/Panel/Stars/Timer" to="UI/EndScreen/Panel/Stars" method="_on_Timer_timeout"]

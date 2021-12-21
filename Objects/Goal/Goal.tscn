@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Objects/Goal/Goal.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Goal/Animation/GoalFlag1.png" type="Texture" id=2]
@@ -19,10 +19,18 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.45045 ), -1.42414, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.130435, 0.902174, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
 [node name="Goal" type="Area2D"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
@@ -31,8 +39,29 @@ position = Vector2( 9, -20 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "Wave"
-frame = 3
+frame = 1
 playing = true
+
+[node name="AreaMarker" type="Polygon2D" parent="."]
+color = Color( 1, 0, 0, 0.0784314 )
+polygon = PoolVector2Array( -64, 0, -64, -32, 64, -32, 64, 0 )
+
+[node name="Confetti" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 2.0
+explosiveness = 0.5
+direction = Vector2( 0, -1 )
+spread = 23.53
+gravity = Vector2( 0, 200 )
+initial_velocity = 300.0
+angular_velocity = 500.0
+angular_velocity_random = 0.64
+scale_amount = 4.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+hue_variation = 1.0
+hue_variation_random = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Goal_body_exited"]

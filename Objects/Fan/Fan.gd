@@ -5,6 +5,10 @@ export (int) var fan_speed := 30
 var deer: RigidBody2D = null
 
 
+func _ready() -> void:
+	$FanSound.play()
+
+
 func _process(delta: float) -> void:
 	if deer != null:
 		if not deer.sleeping:

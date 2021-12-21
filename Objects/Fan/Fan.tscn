@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Objects/Fan/Fan.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Movable Object/MovableObject.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Objects/Fan/Animation/fan_4.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Fan/Animation/fan_8.png" type="Texture" id=11]
 [ext_resource path="res://Objects/Fan/Animation/fan_5.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Fan/fan.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 16 )
@@ -60,7 +61,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Area2D" index="1"]
 frames = SubResource( 3 )
 animation = "Spin"
-frame = 2
+frame = 7
 playing = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Body/Area2D" index="2"]
@@ -73,6 +74,10 @@ scale_amount = 3.0
 scale_amount_random = 1.0
 scale_amount_curve = SubResource( 4 )
 color_ramp = SubResource( 5 )
+
+[node name="FanSound" type="AudioStreamPlayer" parent="Body/Area2D" index="3"]
+stream = ExtResource( 13 )
+volume_db = -18.0
 
 [connection signal="body_entered" from="Body/Area2D" to="Body/Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Body/Area2D" to="Body/Area2D" method="_on_Area2D_body_exited"]

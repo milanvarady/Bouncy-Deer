@@ -74,7 +74,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var zoom_out_duration := 0.3
 		var start_pos: Vector2 = hit_cam.global_position
 		var end_pos: Vector2 = $DeerPos.global_position
-		var zoom_scale := Vector2(0.2, 0.2)
+		var zoom_scale := Vector2(0.4, 0.4)
 		
 		# Zoom in animation
 		hit_cam.make_current()
