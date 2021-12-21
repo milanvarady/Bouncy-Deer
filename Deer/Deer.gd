@@ -37,3 +37,7 @@ func stop() -> void:
 
 func _on_StopPatience_timeout() -> void:
 	stop()
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	stop()

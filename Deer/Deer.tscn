@@ -40,4 +40,7 @@ shape = SubResource( 5 )
 [node name="StopPatience" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
 [connection signal="timeout" from="StopPatience" to="." method="_on_StopPatience_timeout"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

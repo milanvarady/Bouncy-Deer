@@ -137,7 +137,7 @@ func create_deer() -> void:
 	deer.position = $DeerPos.position
 	deer.connect("stopped", self, "_on_Deer_stopped")
 	
-	add_child(deer)
+	call_deferred("add_child", deer)
 	
 	$StuckPopup.hide()
 	$Timeout.stop()

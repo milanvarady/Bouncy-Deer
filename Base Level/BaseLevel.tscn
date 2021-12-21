@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 32, 496 ) ]
+"values": [ Vector2( 32, 0 ) ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -168,15 +168,15 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+objects_path = NodePath("../../Objects")
 
 [node name="Dock" type="Panel" parent="Base/ObjectDock"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
-margin_top = 496.0
-margin_right = 3040.0
-margin_bottom = 608.0
+margin_right = 5088.0
+margin_bottom = 112.0
 mouse_filter = 2
 theme = ExtResource( 3 )
 __meta__ = {

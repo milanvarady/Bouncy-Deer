@@ -4,8 +4,7 @@ export var objects_path: NodePath
 
 var objects_on_dock: Array = []
 var mouse_inside := false
-var initial_collect := 5
-var area_just_added := false
+var initial_collect := 0
 
 
 func _ready() -> void:
@@ -15,6 +14,14 @@ func _ready() -> void:
 	# This is because of a bug
 	$Dock.rect_size = Vector2(960, 112)
 	$Dock/DockAnimation.play_backwards("Open")
+	
+	for object in $Dock.get_children():
+		if object.is_in_group("Objects"):
+			add_object(object)
+			object.position.y = $Dock.rect_size.y / 2
+			
+	if objects_on_dock.size() == 0:
+		queue_free()
 
 
 func _process(delta: float) -> void:
@@ -36,14 +43,19 @@ func _process(delta: float) -> void:
 func _on_DragArea_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Objects") and not objects_on_dock.has(area):
 		if (area.drag or initial_collect > 0) and not objects_on_dock.has(area):
-			area.get_node("Body").scale = Vector2(0.5, 0.5)
+			add_object(area)
+
+
+func add_object(area) -> void:
+	var before_pos = area.global_position
 			
-			area.get_parent().remove_child(area)
-			$Dock.call_deferred("add_child", area)
-			
-			area_just_added = true
-			
-			objects_on_dock.append(area)
+	area.get_node("Body").scale = Vector2(0.5, 0.5)
+	
+	area.get_parent().remove_child(area)
+	$Dock.call_deferred("add_child", area)
+#	area.set_deferred("global_position", before_pos)
+	
+	objects_on_dock.append(area)
 
 
 func _on_ObjectDock_mouse_entered() -> void:
