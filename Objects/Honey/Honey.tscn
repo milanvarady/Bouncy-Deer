@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Honey/honey.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Honey/Honey.gd" type="Script" id=2]
+
+[node name="Honey" type="TextureRect"]
+margin_right = 16.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 16, 18 )
+texture = ExtResource( 1 )
+stretch_mode = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

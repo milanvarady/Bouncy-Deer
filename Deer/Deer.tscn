@@ -24,6 +24,7 @@ angular_damp = 20.0
 script = ExtResource( 3 )
 
 [node name="Trail" type="Line2D" parent="."]
+visible = false
 width_curve = SubResource( 6 )
 default_color = Color( 0.4, 0.501961, 1, 1 )
 gradient = SubResource( 7 )

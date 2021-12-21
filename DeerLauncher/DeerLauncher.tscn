@@ -38,7 +38,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 25.2982
+radius = 40.7922
 
 [node name="DeerLauncher" type="Node2D"]
 script = ExtResource( 3 )
@@ -91,7 +91,7 @@ __meta__ = {
 position = Vector2( -8, -8 )
 frames = SubResource( 3 )
 animation = "Idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AimDrag" type="Area2D" parent="."]

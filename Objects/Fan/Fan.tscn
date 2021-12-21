@@ -60,7 +60,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body/Area2D" index="1"]
 frames = SubResource( 3 )
 animation = "Spin"
-frame = 8
+frame = 2
 playing = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Body/Area2D" index="2"]

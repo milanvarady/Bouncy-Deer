@@ -1,6 +1,6 @@
 extends Area2D
 
-export (int) var fan_speed := 100
+export (int) var fan_speed := 30
 
 var deer: RigidBody2D = null
 

@@ -13,7 +13,9 @@ tile_data = PoolIntArray( -131075, 0, 0, -131074, 0, 1, -131073, 0, 1, -196608, 
 visible = false
 
 [node name="Dock" parent="Base/ObjectDock" index="0"]
-margin_right = 12256.0
+margin_top = -112.0
+margin_right = 13280.0
+margin_bottom = 0.0
 
 [node name="Goal" parent="Base" index="2"]
 position = Vector2( 80, 560 )
@@ -56,3 +58,9 @@ position = Vector2( 704, 528 )
 rotation = -1.57079
 movable = false
 rotatable = false
+
+[node name="Panel" parent="UI/EndScreen" index="0"]
+margin_left = -160.0
+margin_top = -224.0
+margin_right = 192.0
+margin_bottom = 224.0

@@ -10,8 +10,7 @@
 [ext_resource path="res://Objects/Bounce Pad/bounce.wav" type="AudioStream" id=8]
 
 [sub_resource type="PhysicsMaterial" id=3]
-friction = 0.0
-bounce = 0.4
+bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80, 4 )
