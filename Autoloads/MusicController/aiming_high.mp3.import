@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/aiming_high.mp3-4798c3791bcfcd02c3b90ca1eb4b570f.mp3str"
+
+[deps]
+
+source_file="res://Autoloads/MusicController/aiming_high.mp3"
+dest_files=[ "res://.import/aiming_high.mp3-4798c3791bcfcd02c3b90ca1eb4b570f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

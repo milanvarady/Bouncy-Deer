@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/Goal/Goal.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Goal/Animation/GoalFlag1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Goal/Animation/GoalFlag5.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Goal/Animation/GoalFlag3.png" type="Texture" id=6]
 [ext_resource path="res://Objects/Goal/Animation/GoalFlag4.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Goal/success.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 16 )
@@ -39,7 +40,7 @@ position = Vector2( 9, -20 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "Wave"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AreaMarker" type="Polygon2D" parent="."]
@@ -62,6 +63,10 @@ scale_amount_curve = SubResource( 3 )
 color_ramp = SubResource( 4 )
 hue_variation = 1.0
 hue_variation_random = 1.0
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Goal_body_exited"]

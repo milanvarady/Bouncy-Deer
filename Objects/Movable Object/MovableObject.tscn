@@ -140,6 +140,7 @@ corner_radius_bottom_left = 5
 [node name="Object" type="Area2D" groups=["Objects"]]
 monitoring = false
 script = ExtResource( 1 )
+rotate_sensitivity = 0.8
 
 [node name="ObjectShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 11 )

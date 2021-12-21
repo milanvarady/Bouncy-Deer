@@ -28,3 +28,4 @@ func _on_Goal_body_exited(body: Node) -> void:
 
 func _on_DeerLauncher_level_complete() -> void:
 	$Confetti.emitting = true
+	$SuccessSound.play()

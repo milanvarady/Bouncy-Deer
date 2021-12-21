@@ -18,3 +18,4 @@ func _ready() -> void:
 
 func _on_LvlButton_change_level(level_num: int) -> void:
 	Global.go_to_level(level_num)
+	MusicController.set_effect("game")

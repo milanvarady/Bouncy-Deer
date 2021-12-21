@@ -286,5 +286,6 @@ animation = "Open"
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -10.0
 
 [connection signal="body_entered" from="Button" to="Button" method="_on_Button_body_entered"]

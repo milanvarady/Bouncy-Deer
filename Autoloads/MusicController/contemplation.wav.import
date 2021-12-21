@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/contemplation.wav-faf6e7f00739d03b35d27ff0a50e724f.sample"
+
+[deps]
+
+source_file="res://Autoloads/MusicController/contemplation.wav"
+dest_files=[ "res://.import/contemplation.wav-faf6e7f00739d03b35d27ff0a50e724f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

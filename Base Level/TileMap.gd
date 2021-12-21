@@ -6,14 +6,14 @@ var tilemap_merge = TileMapMerge.new()
 var rect_list : Array
 
 func _ready():
-	for cellpos in get_used_cells():
-			var cell = get_cellv(cellpos)
-			
-			if cell != 0:
-				var object = icile_scene.instance()
-				object.position = map_to_world(cellpos) * scale + cell_size / 2
-				add_child(object)
-				set_cellv(cellpos, -1)
+#	for cellpos in get_used_cells():
+#			var cell = get_cellv(cellpos)
+#
+#			if cell != 0:
+#				var object = icile_scene.instance()
+#				object.position = map_to_world(cellpos) * scale + cell_size / 2
+#				add_child(object)
+#				set_cellv(cellpos, -1)
 	
 	# Build collision edges and add to level collision object
 	rect_list = tilemap_merge.merge(self)

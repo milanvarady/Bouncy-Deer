@@ -1,0 +1,270 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Base Level/UI/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://Base Level/UI/Stars.gd" type="Script" id=2]
+[ext_resource path="res://UI Theme/Icons/star-regular.png" type="Texture" id=3]
+[ext_resource path="res://UI Theme/Theme.tres" type="Theme" id=4]
+[ext_resource path="res://UI Theme/Icons/star-solid.png" type="Texture" id=5]
+[ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle1.png" type="Texture" id=6]
+[ext_resource path="res://Base Level/whoosh.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "LevelComplete"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( -400, 64 ), Vector2( 336, 64 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Panel/Stars")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_animation"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("WhooshSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 352, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel/ButtonContainer/BackToMenu:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel/ButtonContainer/NextLevel:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="EndScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 352.0
+margin_top = 64.0
+margin_right = 704.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 189, 336 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_right = 1.0
+margin_bottom = 80.0
+text = "Level Cleared"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_right = 32.0
+margin_bottom = 64.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stars" type="Control" parent="Panel"]
+anchor_left = 0.1
+anchor_top = 0.357
+anchor_right = 0.9
+anchor_bottom = 0.357
+margin_left = 16.0
+margin_top = -47.936
+margin_right = -16.0
+margin_bottom = 16.064
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star1" type="TextureProgress" parent="Panel/Stars"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -26.0
+margin_right = 58.0
+margin_bottom = 26.0
+rect_pivot_offset = Vector2( 29, 26 )
+size_flags_horizontal = 7
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+fill_mode = 4
+tint_progress = Color( 1, 0.74902, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star2" type="TextureProgress" parent="Panel/Stars"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_top = -26.0
+margin_right = 29.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 29, 26 )
+size_flags_horizontal = 7
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+fill_mode = 4
+tint_progress = Color( 1, 0.74902, 0, 1 )
+
+[node name="Star3" type="TextureProgress" parent="Panel/Stars"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -26.0
+margin_bottom = 26.0
+size_flags_horizontal = 7
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+fill_mode = 4
+tint_progress = Color( 1, 0.74902, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Panel/Stars"]
+wait_time = 0.2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -96.0
+margin_right = -16.0
+margin_bottom = -16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToMenu" type="Button" parent="Panel/ButtonContainer"]
+margin_right = 149.0
+margin_bottom = 80.0
+size_flags_horizontal = 7
+text = "Menu"
+
+[node name="NextLevel" type="Button" parent="Panel/ButtonContainer"]
+margin_left = 153.0
+margin_right = 320.0
+margin_bottom = 80.0
+size_flags_horizontal = 7
+text = "Next Level"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LevelComplete = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="WhooshSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[connection signal="timeout" from="Panel/Stars/Timer" to="Panel/Stars" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Panel/ButtonContainer/BackToMenu" to="." method="_on_BackToMenu_pressed"]
+[connection signal="pressed" from="Panel/ButtonContainer/NextLevel" to="." method="_on_NextLevel_pressed"]
