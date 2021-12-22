@@ -66,7 +66,6 @@ func _on_ObjectDock_mouse_exited() -> void:
 
 
 func _on_DragArea_area_exited(area: Area2D) -> void:
-	print(objects_on_dock)
 	if area.is_in_group("Objects") and objects_on_dock.has(area):
 		area.get_parent().call_deferred("remove_child", area)
 		get_node(objects_path).call_deferred("add_child", area)

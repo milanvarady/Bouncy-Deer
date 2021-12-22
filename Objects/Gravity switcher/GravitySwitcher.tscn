@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/Gravity switcher/GravitySwitcher.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Movable Object/MovableObject.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objects/Gravity switcher/Animation/gavity_switch_5.png" type="Texture" id=7]
 [ext_resource path="res://Objects/Gravity switcher/Animation/gavity_switch_6.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Gravity switcher/electric_switch.wav" type="AudioStream" id=9]
+[ext_resource path="res://Objects/Gravity switcher/direction_arrow.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -23,6 +24,13 @@ animations = [ {
 "name": "Flow",
 "speed": 15.0
 } ]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0.990991 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.626126 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.163043, 0.855978, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 0.679688, 0, 1, 1, 0.890625, 0, 1, 1, 1, 1, 0 )
 
 [node name="GravitySwitcher" instance=ExtResource( 2 )]
 
@@ -43,5 +51,24 @@ frame = 5
 
 [node name="SwitchSound" type="AudioStreamPlayer" parent="Body/SwitchArea" index="2"]
 stream = ExtResource( 9 )
+
+[node name="DirectionParticles" type="CPUParticles2D" parent="Body/SwitchArea" index="3"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.3
+lifetime_randomness = 0.6
+texture = ExtResource( 10 )
+emission_shape = 2
+emission_rect_extents = Vector2( 64, 16 )
+flag_align_y = true
+direction = Vector2( 0, 0 )
+spread = 0.0
+gravity = Vector2( 0, 120 )
+linear_accel = 40.0
+linear_accel_random = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
 
 [connection signal="body_entered" from="Body/SwitchArea" to="Body/SwitchArea" method="_on_Area2D_body_entered"]
