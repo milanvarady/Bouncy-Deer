@@ -90,8 +90,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
-margin_right = 12256.0
-margin_bottom = 112.0
+margin_top = -112.0
+margin_right = 14304.0
 mouse_filter = 2
 theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 6 )
@@ -123,6 +123,7 @@ position = Vector2( 512, 288 )
 
 [node name="Boundary" type="StaticBody2D" parent="Base"]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 

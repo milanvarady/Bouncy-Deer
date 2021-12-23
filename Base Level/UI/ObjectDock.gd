@@ -25,15 +25,18 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Rect2(rect_position, rect_size).has_point(get_global_mouse_position()):
-		if not mouse_inside:
-			_on_ObjectDock_mouse_entered()
-		
-		mouse_inside = true
+	if Global.move_phase:
+		if Rect2(rect_position, rect_size).has_point(get_global_mouse_position()):
+			if not mouse_inside:
+				_on_ObjectDock_mouse_entered()
+			
+			mouse_inside = true
+		else:
+			if mouse_inside:
+				_on_ObjectDock_mouse_exited()
+			
+			mouse_inside = false
 	else:
-		if mouse_inside:
-			_on_ObjectDock_mouse_exited()
-		
 		mouse_inside = false
 
 

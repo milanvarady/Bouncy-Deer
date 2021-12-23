@@ -1,7 +1,7 @@
 extends GridContainer
 
 export var lvl_button_scene: PackedScene
-export var n_levels: int = 10
+export var n_levels: int = 15
 
 func _ready() -> void:
 	for i in n_levels:
@@ -19,3 +19,7 @@ func _ready() -> void:
 func _on_LvlButton_change_level(level_num: int) -> void:
 	Global.go_to_level(level_num)
 	MusicController.set_effect("game")
+
+
+func _on_CreditsButton_pressed() -> void:
+	get_tree().change_scene("res://Level Select/Credits.tscn")

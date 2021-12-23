@@ -54,14 +54,14 @@ width_curve = SubResource( 2 )
 gradient = SubResource( 1 )
 
 [node name="Timeout" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 10.0
 
 [node name="StuckPopup" type="Panel" parent="."]
 visible = false
 margin_left = -112.0
-margin_top = -152.0
+margin_top = -144.0
 margin_right = 112.0
-margin_bottom = -48.0
+margin_bottom = -40.0
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

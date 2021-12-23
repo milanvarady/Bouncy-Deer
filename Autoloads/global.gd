@@ -1,7 +1,7 @@
 extends Node
 
 var current_level: int = -1
-var levels_unloced: int = 10
+var levels_unloced: int = 15
 var stars_earned: int = 2
 var stars: PoolIntArray
 var move_phase := true

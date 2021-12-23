@@ -1,8 +1,14 @@
 extends Control
 
 
+export var last_level := false
+
+
 func _ready() -> void:
 	hide()
+	
+	if last_level:
+		$Panel/ButtonContainer/NextLevel.queue_free()
 
 
 func _on_BackToMenu_pressed() -> void:
