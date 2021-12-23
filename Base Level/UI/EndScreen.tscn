@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Base Level/UI/EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://Base Level/UI/Stars.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI Theme/Icons/star-solid.png" type="Texture" id=5]
 [ext_resource path="res://DeerLauncher/Animation/Idle/Santa_Idle1.png" type="Texture" id=6]
 [ext_resource path="res://Base Level/whoosh.wav" type="AudioStream" id=7]
+[ext_resource path="res://UI Theme/montserrat_small.tres" type="DynamicFont" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "LevelComplete"
@@ -141,7 +142,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Panel"]
 anchor_right = 1.0
 margin_bottom = 80.0
 text = "Level Cleared"
@@ -151,29 +152,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_right = 32.0
-margin_bottom = 64.0
-texture = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Stars" type="Control" parent="Panel"]
 anchor_left = 0.1
 anchor_top = 0.357
 anchor_right = 0.9
 anchor_bottom = 0.357
-margin_left = 16.0
-margin_top = -47.936
-margin_right = -16.0
-margin_bottom = 16.064
+margin_left = 15.8
+margin_top = -79.936
+margin_right = -16.2
+margin_bottom = -15.936
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -231,6 +218,37 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="Panel/Stars"]
 wait_time = 0.2
+
+[node name="Metrics" type="Label" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -48.0
+margin_right = -32.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 8 )
+text = "Deer launched: {deer}
+Time: {time}"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Santa" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 96.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ButtonContainer" type="HBoxContainer" parent="Panel"]
 anchor_top = 1.0

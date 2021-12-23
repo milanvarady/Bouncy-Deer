@@ -37,7 +37,7 @@ __meta__ = {
 [node name="Programming" type="Label" parent="TextContainer"]
 margin_right = 512.0
 margin_bottom = 40.0
-text = "Programming"
+text = "Game Logic & Code"
 align = 1
 valign = 1
 

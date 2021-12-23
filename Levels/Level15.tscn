@@ -146,7 +146,7 @@ position = Vector2( 160, 560 )
 wait_time = 20.0
 
 [node name="AnimatedSprite" parent="Base/DeerLauncher" index="4"]
-frame = 0
+frame = 3
 
 [node name="Cannon" parent="Objects" index="0" instance=ExtResource( 1 )]
 position = Vector2( 256, 544 )

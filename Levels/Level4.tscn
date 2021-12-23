@@ -15,7 +15,7 @@ visible = false
 
 [node name="Dock" parent="Base/ObjectDock" index="0"]
 margin_top = -112.0
-margin_right = 7136.0
+margin_right = 8160.0
 margin_bottom = 0.0
 
 [node name="Goal" parent="Base" index="2"]
@@ -47,9 +47,3 @@ margin_top = 96.0
 margin_right = 1325.0
 margin_bottom = 112.0
 rect_rotation = -180.0
-
-[node name="Panel" parent="UI/EndScreen" index="0"]
-margin_left = -160.0
-margin_top = -224.0
-margin_right = 192.0
-margin_bottom = 224.0

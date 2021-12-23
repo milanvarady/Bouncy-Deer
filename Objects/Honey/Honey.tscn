@@ -4,9 +4,10 @@
 [ext_resource path="res://Objects/Honey/Honey.gd" type="Script" id=2]
 
 [node name="Honey" type="TextureRect"]
+margin_top = -2.0
 margin_right = 16.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 16, 18 )
+margin_bottom = 14.0
+rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 1 )
 stretch_mode = 2
 script = ExtResource( 2 )

@@ -1,7 +1,6 @@
 extends Node2D
 
 signal level_complete
-signal drag_start
 
 # Stars based on number of attempts
 # [3 stars, 2 stars, 1 star] if less or equal to number
@@ -18,6 +17,7 @@ var deer: RigidBody2D
 var drag := false
 var launch_velocity := Vector2.ZERO
 var can_shoot := false
+var start_time := 0
 
 onready var hit_cam: Camera2D = get_parent().get_node("HitCam")
 onready var hit_tween: Tween = hit_cam.get_node("HitCamTween")
@@ -26,6 +26,8 @@ func _ready() -> void:
 	create_deer()
 	
 	$AimDrag.modulate.a = 0
+	
+	start_time = OS.get_ticks_msec()
 	
 
 func _process(delta: float) -> void:
@@ -44,8 +46,6 @@ func _process(delta: float) -> void:
 func _on_AimDrag_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("drag") and deer != null and can_shoot:
 		drag = true
-		
-		emit_signal("drag_start")
 		
 		$AimDrag.modulate.a = 1
 		$Trajectory.show()
@@ -119,8 +119,10 @@ func _on_Deer_stopped(in_goal):
 				break
 			elif i == 2:
 				Global.stars_earned = 0
+				
+		var time_elapsed = (OS.get_ticks_msec() - start_time) / 1000
 
-		emit_signal("level_complete")
+		emit_signal("level_complete", shots, time_elapsed)
 
 		# Disable stuck help
 		$Timeout.stop()

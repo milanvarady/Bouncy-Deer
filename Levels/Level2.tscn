@@ -30,19 +30,10 @@ rotatable = false
 margin_left = 16.0
 margin_top = 416.0
 margin_right = 608.0
-margin_bottom = 434.0
+margin_bottom = 432.0
 
 [node name="Honey2" parent="Objects" index="2" instance=ExtResource( 3 )]
 margin_left = 368.0
 margin_top = 256.0
 margin_right = 672.0
-margin_bottom = 274.0
-
-[node name="Panel" parent="UI/EndScreen" index="0"]
-margin_left = -160.0
-margin_top = -224.0
-margin_right = 192.0
-margin_bottom = 224.0
-
-[node name="PauseMenu" parent="UI" index="1"]
-visible = false
+margin_bottom = 272.0

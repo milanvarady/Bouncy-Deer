@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Bouncy Deer"
+config/description="A game made by Milan Varady and Gabor Marton"
 run/main_scene="res://Level Select/LevelSelect.tscn"
 config/icon="res://icon.png"
 

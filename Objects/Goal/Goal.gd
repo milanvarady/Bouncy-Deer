@@ -26,6 +26,6 @@ func _on_Goal_body_exited(body: Node) -> void:
 		$AreaMarker.color.a = 0.2
 
 
-func _on_DeerLauncher_level_complete() -> void:
+func _on_DeerLauncher_level_complete(_deer_launched, _elapsed_time) -> void:
 	$Confetti.emitting = true
 	$SuccessSound.play()

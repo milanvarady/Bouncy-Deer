@@ -12,7 +12,9 @@ tile_data = PoolIntArray( -131075, 0, 0, -131074, 0, 1, -131073, 0, 1, -196608, 
 visible = false
 
 [node name="Dock" parent="Base/ObjectDock" index="0"]
-margin_right = 10208.0
+margin_top = -112.0
+margin_right = 11232.0
+margin_bottom = 0.0
 
 [node name="Goal" parent="Base" index="2"]
 position = Vector2( 224, 288 )
