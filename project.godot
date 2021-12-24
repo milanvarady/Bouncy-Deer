@@ -23,7 +23,10 @@ _global_script_class_icons={
 config/name="Bouncy Deer"
 config/description="A game made by Milan Varady and Gabor Marton"
 run/main_scene="res://Level Select/LevelSelect.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://Project Images/aerolite_white_background.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
+config/icon="res://Project Images/app_icon.png"
+config/macos_native_icon="res://Project Images/app_icon_macos.icns"
 
 [autoload]
 
